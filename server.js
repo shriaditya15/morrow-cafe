@@ -1,11 +1,21 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// ES module path setup
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 app.use(cors());
 app.use(express.json());
+
+// ===============================
+// API
+// ===============================
 
 app.post("/api/claim", (req, res) => {
   const { name, phone } = req.body;
@@ -36,6 +46,26 @@ app.post("/api/claim", (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Morrow API running on http://localhost:${PORT}`);
+// ===============================
+// FRONTEND
+// ===============================
+
+// Serve React/Vite production build
+app.use(express.static(path.join(__dirname, "dist")));
+
+// Send index.html for frontend routes
+app.use((req, res, next) => {
+  if (req.path.startsWith("/api/")) {
+    return next();
+  }
+
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
+
+// ===============================
+// START SERVER
+// ===============================
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Morrow API running on port ${PORT}`);
 });
