@@ -1,0 +1,923 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@400;500;600&display=swap");
+
+:root {
+  --cream: #f5f0e8;
+  --cream-light: #faf7f1;
+  --dark: #181512;
+  --brown: #684832;
+  --muted: #71685f;
+  --line: rgba(24, 21, 18, 0.14);
+  --white: #fffdf9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+.page {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  padding: 30px 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(12, 10, 8, 0.72) 0%,
+      rgba(12, 10, 8, 0.48) 42%,
+      rgba(12, 10, 8, 0.28) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(10, 8, 6, 0.18) 0%,
+      rgba(10, 8, 6, 0.58) 100%
+    ),
+    url("https://careers.prozpekt.com/_astro/morrow-cafe-hero.B7AGZOSG_24CLfu.webp");
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 25% 45%,
+    transparent 0%,
+    rgba(0, 0, 0, 0.08) 50%,
+    rgba(0, 0, 0, 0.18) 100%
+  );
+}
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  letter-spacing: 0;
+}
+
+.location {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  opacity: 0.8;
+}
+
+/* =====================================================
+   HERO CONTENT
+===================================================== */
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+  max-width: 760px;
+
+  padding: 70px 0 65px;
+
+  animation: fadeUp 0.8s ease both;
+}
+
+.eyebrow {
+  margin: 0 0 20px;
+
+  color: #e7d8c8;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+
+.hero h1 {
+  margin: 0;
+
+  max-width: 750px;
+
+  font-size: clamp(54px, 8vw, 108px);
+  line-height: 0.9;
+
+  letter-spacing: -0.065em;
+  font-weight: 600;
+
+  color: #fff;
+
+  text-shadow:
+    0 3px 18px rgba(0, 0, 0, 0.28),
+    0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.hero h1 em {
+  display: inline-block;
+
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+
+  letter-spacing: -0.045em;
+
+  color: #f7eee4;
+}
+
+.hero-text {
+  max-width: 570px;
+
+  margin: 30px 0 36px;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  font-size: 16px;
+  line-height: 1.7;
+
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-width: 225px;
+
+  padding: 18px 20px;
+
+  color: var(--dark);
+  background: #f7f0e7;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-3px);
+
+  background: #ffffff;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero-button span {
+  font-size: 20px;
+  transition: transform 0.25s ease;
+}
+
+.hero-button:hover span {
+  transform: translateY(3px);
+}
+
+.scroll-hint {
+  position: relative;
+  z-index: 3;
+
+  padding-bottom: 4px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+}
+
+/* =====================================================
+   OFFER SECTION
+===================================================== */
+
+.offer-section {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+
+  gap: 70px;
+
+  padding: 120px max(28px, 7vw);
+
+  background: var(--cream);
+}
+
+.offer-copy {
+  max-width: 650px;
+}
+
+.section-label {
+  margin: 0 0 18px;
+
+  color: var(--brown);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.offer-copy h2 {
+  margin: 0;
+
+  font-size: clamp(78px, 12vw, 155px);
+  line-height: 0.82;
+
+  letter-spacing: -0.075em;
+}
+
+.offer-copy h2 span {
+  display: block;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 0.46em;
+  font-weight: 400;
+
+  letter-spacing: -0.035em;
+}
+
+.offer-copy > p:not(.section-label) {
+  max-width: 480px;
+
+  margin: 35px 0 48px;
+
+  color: var(--muted);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.details {
+  display: flex;
+  gap: 60px;
+
+  padding-top: 26px;
+
+  border-top: 1px solid var(--line);
+}
+
+.details div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.details span {
+  color: var(--muted);
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 0.16em;
+}
+
+.details strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* =====================================================
+   COFFEE CARD
+===================================================== */
+
+.coffee-card {
+  min-height: 430px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  padding: 45px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(25, 18, 13, 0.15),
+      rgba(25, 18, 13, 0.45)
+    ),
+    radial-gradient(
+      circle at 50% 38%,
+      #aa8060 0%,
+      #684936 28%,
+      #2b211b 72%
+    );
+
+  box-shadow: 0 20px 50px rgba(40, 28, 20, 0.12);
+}
+
+.coffee-circle {
+  width: 175px;
+  height: 175px;
+
+  margin-bottom: auto;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.coffee-circle span {
+  font-size: 68px;
+}
+
+.coffee-card p {
+  align-self: flex-start;
+
+  margin: 3px 0;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.17em;
+}
+
+/* =====================================================
+   CLAIM SECTION
+===================================================== */
+
+.claim-section {
+  padding: 115px max(28px, 7vw);
+
+  background: var(--white);
+}
+
+.claim-header {
+  max-width: 700px;
+
+  margin-bottom: 50px;
+}
+
+.claim-header .section-label {
+  color: var(--brown);
+}
+
+.claim-header h2 {
+  margin: 0;
+
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 0.98;
+
+  letter-spacing: -0.06em;
+}
+
+.claim-header > p:last-child {
+  max-width: 520px;
+
+  margin-top: 24px;
+
+  color: var(--muted);
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.claim-form {
+  max-width: 620px;
+}
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.field {
+  margin-bottom: 28px;
+}
+
+.field label {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.field input {
+  width: 100%;
+
+  padding: 16px 0;
+
+  border: 0;
+  border-bottom: 1px solid var(--line);
+
+  outline: none;
+
+  background: transparent;
+
+  color: var(--dark);
+
+  font-size: 17px;
+
+  transition:
+    border-color 0.2s ease,
+    padding 0.2s ease;
+}
+
+.field input:focus {
+  border-color: var(--brown);
+}
+
+.field input::placeholder {
+  color: #aaa19a;
+}
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
+
+.submit-button {
+  width: 100%;
+
+  margin-top: 12px;
+
+  padding: 19px 21px;
+
+  border: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: var(--dark);
+  color: white;
+
+  font-weight: 700;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  background: #2a2521;
+}
+
+.submit-button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.submit-button span {
+  font-size: 21px;
+}
+
+.privacy-note {
+  margin-top: 15px;
+
+  color: #8d857e;
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error-message {
+  margin: 15px 0;
+
+  padding: 13px 15px;
+
+  background: #f8e9e6;
+
+  color: #8d3027;
+
+  font-size: 12px;
+
+  border-left: 3px solid #b84b3e;
+}
+
+/* =====================================================
+   SUCCESS CARD
+===================================================== */
+
+.success-card {
+  max-width: 620px;
+
+  padding: 48px;
+
+  background: var(--cream);
+
+  border: 1px solid var(--line);
+
+  animation: fadeUp 0.45s ease both;
+}
+
+.success-icon {
+  width: 48px;
+  height: 48px;
+
+  margin-bottom: 30px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: var(--dark);
+  color: white;
+
+  font-size: 21px;
+}
+
+.success-card h2 {
+  margin: 0;
+
+  font-size: clamp(52px, 7vw, 70px);
+
+  letter-spacing: -0.065em;
+}
+
+.success-message {
+  max-width: 420px;
+
+  color: var(--muted);
+
+  line-height: 1.7;
+}
+
+/* =====================================================
+   CLAIM CODE
+===================================================== */
+
+.claim-code {
+  margin: 32px 0 20px;
+
+  padding: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  background: white;
+
+  border: 1px dashed var(--brown);
+}
+
+.claim-code span {
+  font-size: 18px;
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+}
+
+.claim-code button {
+  min-width: 100px;
+
+  border: 0;
+
+  padding: 11px 18px;
+
+  background: var(--dark);
+  color: white;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.claim-code button:hover {
+  transform: translateY(-2px);
+
+  background: #302b27;
+}
+
+/* =====================================================
+   SECONDARY BUTTON
+===================================================== */
+
+.secondary-button {
+  padding: 11px 17px;
+
+  background: transparent;
+
+  color: var(--dark);
+
+  border: 1px solid var(--line);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.secondary-button:hover {
+  background: var(--dark);
+  color: white;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+  padding: 38px max(28px, 7vw);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  background: var(--dark);
+
+  color: white;
+}
+
+footer .brand-mark {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+footer p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.52);
+
+  font-size: 10px;
+}
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 94svh;
+
+    padding: 22px;
+  }
+
+  .location {
+    display: none;
+  }
+
+  .brand {
+    font-size: 13px;
+  }
+
+  .brand-mark {
+    width: 35px;
+    height: 35px;
+
+    font-size: 18px;
+  }
+
+  .hero-content {
+    padding: 50px 0 45px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+
+    letter-spacing: 0.17em;
+  }
+
+  .hero h1 {
+    font-size: clamp(50px, 14vw, 76px);
+
+    line-height: 0.91;
+  }
+
+  .hero-text {
+    margin-top: 25px;
+
+    font-size: 14px;
+  }
+
+  .hero-button {
+    min-width: 210px;
+
+    padding: 16px 17px;
+  }
+
+  .scroll-hint {
+    font-size: 8px;
+  }
+
+  .offer-section {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .offer-copy h2 {
+    font-size: clamp(75px, 22vw, 125px);
+  }
+
+  .details {
+    flex-direction: column;
+
+    gap: 22px;
+  }
+
+  .coffee-card {
+    min-height: 330px;
+
+    padding: 35px;
+  }
+
+  .coffee-circle {
+    width: 145px;
+    height: 145px;
+  }
+
+  .coffee-circle span {
+    font-size: 58px;
+  }
+
+  .claim-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .claim-header {
+    margin-bottom: 40px;
+  }
+
+  .claim-header h2 {
+    font-size: clamp(40px, 11vw, 58px);
+  }
+
+  .success-card {
+    padding: 32px 22px;
+  }
+
+  .success-card h2 {
+    font-size: 50px;
+  }
+
+  .claim-code {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .claim-code span {
+    text-align: center;
+  }
+
+  .claim-code button {
+    width: 100%;
+  }
+
+  footer {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+/* =====================================================
+   LARGE DESKTOP
+===================================================== */
+
+@media (min-width: 1200px) {
+  .hero {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+
+  .hero-content {
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
+}
+.coffee-image {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 330px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto auto;
+}
+
+.coffee-card {
+  overflow: hidden;
+}
