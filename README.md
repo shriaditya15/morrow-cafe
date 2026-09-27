@@ -1,16 +1,58 @@
-# React + Vite
+# Morrow Café — ₹150 Offer Claim Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, responsive café offer landing page built with React and Vite.
 
-Currently, two official plugins are available:
+Users can enter their name and phone number to claim a ₹150 discount and receive a unique offer code instantly.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Live Demo
 
-## React Compiler
+Coming soon.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📌 Features
 
-## Expanding the ESLint configuration
+- Premium café landing page
+- Responsive design for desktop and mobile
+- ₹150 offer claim form
+- Name and phone number validation
+- Backend API for offer generation
+- Unique offer code generation
+- Copy offer code functionality
+- Claim another offer functionality
+- Error handling
+- Production-ready Vite build
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+### Frontend
+- React
+- Vite
+- JavaScript
+- CSS
+
+### Backend
+- Node.js
+- Express.js
+
+## 📂 Project Structure
+
+```text
+MorrowCafe/
+│
+├── public/
+│   ├── cafe.png
+│   ├── favicon.svg
+│   └── icons.svg
+│
+├── src/
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+│
+├── server.js
+├── vite.config.js
+├── package.json
+├── package-lock.json
+├── index.html
+├── README.md
+└── .gitignore
